@@ -15,8 +15,8 @@ import java.util.Locale;
 public class Handlers {
     public static Route AverageExchangeRate() {
         return (request, response) -> {
-            String code = request.queryParams("code");
-            String dateParam = request.queryParams("date");
+            String code = request.params("code");
+            String dateParam = request.params("date");
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
             Date date = dateFormat.parse(dateParam);
 
@@ -37,8 +37,8 @@ public class Handlers {
     public static Route MinMaxAverageValue() {
         return (request, response) -> {
 
-            String code = request.queryParams("code");
-            String quotations = request.queryParams("quotations");
+            String code = request.params("code");
+            int quotations = Math.min(Integer.parseInt(request.params("quotations")), 255);
 
             HttpClient httpClient = HttpClient.newHttpClient();
             Gson gson = new Gson();
@@ -64,8 +64,8 @@ public class Handlers {
 
     public static Route MaxDifference() {
         return (request, response) -> {
-            String code = request.queryParams("code");
-            String quotations = request.queryParams("quotations");
+            String code = request.params("code");
+            int quotations = Math.min(Integer.parseInt(request.params("quotations")), 255);
             float max = 0;
 
             HttpClient httpClient = HttpClient.newHttpClient();

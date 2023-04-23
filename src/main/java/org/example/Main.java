@@ -9,9 +9,9 @@ public class Main {
 
     public static void main(String[] args)  {
         port(8888);
-        Spark.get("/average-exchange-rate", AverageExchangeRate());
-        Spark.get("/minmax-average-value", MinMaxAverageValue());
-        Spark.get("/major-difference", MaxDifference());
+        Spark.get("/average-exchange-rate/:code/:date", AverageExchangeRate());
+        Spark.get("/minmax-average-value/:code/:quotations", MinMaxAverageValue());
+        Spark.get("/major-difference/:code/:quotations", MaxDifference());
 
     }
 }
