@@ -4,6 +4,9 @@ FROM openjdk:19-jdk-slim
 # Set working directory
 WORKDIR /
 
+# custom installation for RPI Grove dependencies defined in requirements.txt
+RUN apt-get update
+RUN apt-get install -y curl
 # Copy the dependencies file to the working directory
 COPY pom.xml .
 COPY target/gdn-intership1.jar /app/
