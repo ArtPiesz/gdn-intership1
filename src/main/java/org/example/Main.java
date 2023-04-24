@@ -1,5 +1,9 @@
 package org.example;
+
+
+
 import spark.Spark;
+
 import static org.example.Handlers.*;
 import static spark.Spark.*;
 
@@ -7,11 +11,13 @@ import static spark.Spark.*;
 
 public class Main {
 
-    public static void main(String[] args)  {
+    public static void main(String[] args)   {
+        //BasicConfigurator.configure();
         port(8888);
         Spark.get("/average-exchange-rate/:code/:date", AverageExchangeRate());
         Spark.get("/minmax-average-value/:code/:quotations", MinMaxAverageValue());
         Spark.get("/major-difference/:code/:quotations", MaxDifference());
+
 
     }
 }

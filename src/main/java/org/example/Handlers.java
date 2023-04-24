@@ -2,6 +2,7 @@ package org.example;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+
 import spark.Route;
 
 import java.net.URI;
@@ -13,6 +14,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
 public class Handlers {
+
     public static Route AverageExchangeRate() {
         return (request, response) -> {
             String code = request.params("code");
