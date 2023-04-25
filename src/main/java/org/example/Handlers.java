@@ -23,10 +23,10 @@ public class Handlers {
             String code = request.params("code");
             String dateParam = request.params("date");
 
-            Date date;
+
             try {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-                date = dateFormat.parse(dateParam);
+                Date date = dateFormat.parse(dateParam);
 
             } catch (ParseException e) {
                 response.status(400); // Bad Request
@@ -75,6 +75,7 @@ public class Handlers {
 
             int quotations;
             try {
+
                 quotations = Integer.parseInt(request.params("quotations"));
                 if (quotations < 1 || quotations > 255) {
                     response.status(400); // Bad Request
